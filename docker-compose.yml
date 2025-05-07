@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  consul-agent:
+    image: hashicorp/consul
+    command: agent -dev -client=0.0.0.0 
+    ports:
+      - "8500:8500"
+      - "8600:8600/udp"
+    networks:
+      - lb-net
+    deploy:
+      restart_policy:
+        condition: on-failure
+
+  express-service:
+    image: my-express-app
+    networks:
+      - lb-net
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+
+  consul-template:
+    image: hashicorp/consul-template
+    user: root
+    volumes:
+      - ./nginx.ctmpl:/templates/nginx.ctmpl
+      - ./output:/output
+    command: >
+      -retry 10s
+      -consul-addr=consul-agent:8500
+      -template "/templates/nginx.ctmpl:/output/nginx.conf"
+    networks:
+      - lb-net
+    deploy:
+      restart_policy:
+        condition: on-failure
+
+  
+networks:
+  lb-net:
+    driver: overlay

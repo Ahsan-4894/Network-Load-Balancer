@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome to Demo Server</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background-color: #ffffff;
+      color: #111;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #d22128;
+      padding: 20px;
+      color: white;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+
+    nav {
+      background-color: #333;
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 1em;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      max-width: 960px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    main h2 {
+      color: #d22128;
+      margin-top: 40px;
+    }
+
+    footer {
+      background-color: #f3f3f3;
+      padding: 20px;
+      text-align: center;
+      font-size: 0.9em;
+      color: #555;
+      border-top: 1px solid #ccc;
+    }
+
+    ul.links {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    ul.links li {
+      margin: 5px 0;
+    }
+
+    ul.links li a {
+      text-decoration: none;
+      color: #005eb8;
+    }
+
+    ul.links li a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Welcome to the Demo Application Server</h1>
+  <p>Powered by NGINX • Secured with SSL • Backed by Express</p>
+  <div>
+    <h2>IP Address: <%= ip %></h2>
+    <p>Hostname: <%= hostname %></p>
+  </div>
+</header>
+
+<nav>
+  <a href="#">Home</a>
+  <a href="#">Documentation</a>
+  <a href="#">Downloads</a>
+  <a href="#">API Reference</a>
+  <a href="#">Support</a>
+</nav>
+
+<main>
+  <h2>About This Server</h2>
+  <p>This is a demonstration landing page for a containerized web service using NGINX as a reverse proxy and Express.js as the backend server. It supports HTTPS traffic and dynamic service registration.</p>
+
+  <h2>Documentation</h2>
+  <ul class="links">
+    <li><a href="#">Getting Started Guide</a></li>
+    <li><a href="#">REST API Docs</a></li>
+    <li><a href="#">Deployment Instructions</a></li>
+    <li><a href="#">Service Health Monitoring</a></li>
+    <li><a href="#">Security and Certificates</a></li>
+  </ul>
+
+  <h2>Useful Links</h2>
+  <ul class="links">
+    <li><a href="#">Project GitHub Repo</a></li>
+    <li><a href="#">Nginx Configuration Templates</a></li>
+    <li><a href="#">Consul Service Registry</a></li>
+    <li><a href="#">Load Testing with Apache Bench</a></li>
+  </ul>
+
+  
+</main>
+
+<footer>
+  <p>&copy; 2025 DemoApp Technologies. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
